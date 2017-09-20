@@ -9,18 +9,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*** TODO: rename "functionlist.c" before submitting ***/
 int main () {
 
     char* inputString = calloc(1,1);
     const int maxCharInput = 3;
     pid_t pid;
-
-    /* for case 1 */
-    char str[20];
-    const int td = 1; 
-    char* buf = str;
-    size_t count;
  
     printf("\n");
     do {
@@ -33,8 +26,7 @@ int main () {
             case 1:
                 pid = fork();
                 if (pid == 0) {
-                    count = sprintf(str, "hello world!\n");
-                    write(1, str, count);
+                    printf("hello world!\n");
                     exit(0);
                 } else if (pid < 0) {  /* error */
                     fprintf(stderr, "Fork failed\n");
@@ -48,7 +40,6 @@ int main () {
                 pid = fork();
                 if (pid == 0) {
                     execlp("/bin/ls", "ls", NULL);
-                    exit(0);
                 } else if (pid < 0) { /* error */
                     fprintf(stderr, "Fork failed\n");
                     exit(1);
