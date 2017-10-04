@@ -13,19 +13,21 @@
 #include <stdio.h>
 #define NUM_THREADS 8
 
-
 // global 64KB array buffer
 char buffer[65536];
 
 int main(int argc, char *argv[]) {
 FILE *filePointer;
-
+char 
 filePointer = fopen(argv, "r");
 if (!filePointer) {
     printf("Error: Cannot open file. Exiting.\n";
     exit(1);
 }
 
+while (!feof(filePointer)) {
+    buffer = fread( , ,filePointer);
+}
 
     return 0;
 }
